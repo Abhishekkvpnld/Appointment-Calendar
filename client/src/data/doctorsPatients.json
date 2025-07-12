@@ -1,0 +1,31 @@
+{
+  "patients": [
+    "John Doe",
+    "Jane Smith",
+    "Michael Johnson",
+    "Emily Davis",
+    "David Brown",
+    "Sarah Wilson",
+    "Daniel Taylor",
+    "Olivia Moore",
+    "James Anderson",
+    "Sophia Thomas",
+    "Robert Jackson",
+    "Isabella White",
+    "William Harris",
+    "Mia Martin",
+    "Joseph Thompson",
+    "Charlotte Garcia",
+    "Matthew Martinez",
+    "Amelia Clark",
+    "Anthony Rodriguez",
+    "Evelyn Lewis"
+  ],
+  "doctors": [
+    "Dr. Gregory House",
+    "Dr. Meredith Grey",
+    "Dr. Derek Shepherd",
+    "Dr. Miranda Bailey",
+    "Dr. Cristina Yang"
+  ]
+}
