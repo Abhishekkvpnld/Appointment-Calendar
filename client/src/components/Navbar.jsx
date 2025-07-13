@@ -31,7 +31,7 @@ const Navbar = () => {
             {/* Right side */}
             <div className="flex items-center gap-4 relative">
                 <button
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/all-appointments")}
                     className="px-5 py-2 text-sm font-semibold text-white border border-white/30 rounded-xl bg-white/10 backdrop-blur-md shadow-lg hover:bg-white/20 hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out"
                 >
                     All
