@@ -11,8 +11,6 @@ const Navbar = () => {
     const [showLogout, setShowLogout] = useState(false);
     const { darkTheme, setDarkTheme } = useChangeTheme();
 
-    console.log(darkTheme)
-
     const user = localStorage.getItem("user");
 
     const handleAvatarClick = () => {
