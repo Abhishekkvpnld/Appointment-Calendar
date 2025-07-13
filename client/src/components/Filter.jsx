@@ -1,9 +1,10 @@
 import doctorPatientData from "../data/doctorsPatients.json";
 
 
-const Filter = ({ selectedDoc, setSelectedDoc, selectedPatient, setSelectedPatient }) => {
+const Filter = ({ selectedDoc, setSelectedDoc, selectedPatient, setSelectedPatient,darkTheme }) => {
 
     const { patients, doctors } = doctorPatientData;
+    
 
     return (
         <div className="flex flex-wrap items-center gap-3">

@@ -5,9 +5,11 @@ import doctorPatientData from "../data/doctorsPatients.json";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Filter from "../components/Filter";
+import { useChangeTheme } from "../context/ThemeContext";
 
 const AllAppointments = () => {
   const navigate = useNavigate();
+  const { darkTheme } = useChangeTheme();
 
   const [appointments, setAppointments] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
@@ -23,6 +25,7 @@ const AllAppointments = () => {
     setFilterData(stored);
   }, []);
 
+
   useEffect(() => {
     const allEvents = JSON.parse(localStorage.getItem("myEventList")) || [];
 
@@ -37,6 +40,7 @@ const AllAppointments = () => {
 
     setFilterData(filtered);
   }, [selectedDoc, selectedPatient]);
+
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -88,9 +92,9 @@ const AllAppointments = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className={`${darkTheme ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"} min-h-screen p-6`}>
       <Navbar />
-      <div className="max-w-4xl mx-auto mt-6 bg-white rounded-lg shadow-lg p-4">
+      <div className={`${darkTheme ? "bg-gray-800 text-white" : "bg-white"} max-w-4xl mx-auto mt-6 rounded-lg shadow-lg p-4`}>
         <div className="mb-4 w-full p-4 rounded-lg flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <h1 className="text-xl md:text-2xl font-bold">All Appointments</h1>
           <Filter
@@ -98,15 +102,16 @@ const AllAppointments = () => {
             setSelectedDoc={setSelectedDoc}
             selectedPatient={selectedPatient}
             setSelectedPatient={setSelectedPatient}
+            darkTheme={darkTheme}
           />
         </div>
 
         {filterData.length === 0 ? (
-          <p className="text-gray-500">No appointments found.</p>
+          <p className={`${darkTheme ? "text-gray-400" : "text-gray-500"}`}>No appointments found.</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
-              <thead className="bg-gray-200">
+              <thead className={`${darkTheme ? "bg-gray-700 text-white" : "bg-gray-200"}`}>
                 <tr>
                   <th className="px-4 py-2">Patient</th>
                   <th className="px-4 py-2">Doctor</th>
@@ -129,7 +134,7 @@ const AllAppointments = () => {
                             name="patient"
                             value={editedAppointment?.patient}
                             onChange={handleEditChange}
-                            className="border p-1 rounded"
+                            className="border p-1 rounded bg-inherit text-inherit"
                           >
                             <option value="">Select Patient</option>
                             {patients.map((p, idx) => (
@@ -144,7 +149,7 @@ const AllAppointments = () => {
                             name="doctor"
                             value={editedAppointment?.doctor}
                             onChange={handleEditChange}
-                            className="border p-1 rounded"
+                            className="border p-1 rounded bg-inherit text-inherit"
                           >
                             <option value="">Select Doctor</option>
                             {doctors.map((d, idx) => (
@@ -161,19 +166,19 @@ const AllAppointments = () => {
                             name="time"
                             value={editedAppointment?.time}
                             onChange={handleEditChange}
-                            className="border p-1 rounded"
+                            className="border p-1 rounded bg-inherit text-inherit"
                           />
                         ) : moment(start).format("hh:mm A")}
                       </td>
                       <td className="px-4 py-2 flex gap-2">
                         {isEditing ? (
                           <>
-                            <button onClick={handleEditSave} className="text-green-600 hover:underline">Save</button>
-                            <button onClick={() => setEditingIndex(null)} className="text-gray-500 hover:underline">Cancel</button>
+                            <button onClick={handleEditSave} className="text-green-500 hover:underline">Save</button>
+                            <button onClick={() => setEditingIndex(null)} className="text-gray-400 hover:underline">Cancel</button>
                           </>
                         ) : (
                           <>
-                            <button onClick={() => handleEditClick(index)} className="text-blue-600 hover:underline">Edit</button>
+                            <button onClick={() => handleEditClick(index)} className="text-blue-500 hover:underline">Edit</button>
                             <button onClick={() => handleDelete(index)} className="text-red-500 hover:underline">Delete</button>
                           </>
                         )}
