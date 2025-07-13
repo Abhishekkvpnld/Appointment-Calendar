@@ -1,4 +1,4 @@
-# 🏥 Clinic Appointment Calendar
+#  Clinic Appointment Calendar
 
 A full-featured **Appointment Management Web App** built using **React**, supporting:
 
@@ -14,7 +14,7 @@ A full-featured **Appointment Management Web App** built using **React**, suppor
 
 * 🗓 **Monthly and Daily Calendar View** (React Big Calendar)
 *  Add new appointments via modal form
-* ✏ Edit or delete appointments
+*  Edit or delete appointments
 *  Filter by **doctor** and **patient** on All Appointments page
 *  Dark mode toggle using Context API
 *  Simple login (hardcoded for demo)
